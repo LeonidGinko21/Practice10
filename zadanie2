@@ -27,4 +27,4 @@ int main (){
         fout.write((char *) &dot, sizeof(Dot));
     fout.close();
     return 0;
-}
+ }
