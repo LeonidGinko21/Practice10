@@ -1,0 +1,30 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+class Dot{
+public:
+    int i, j, k;
+    Dot(){
+        i = j = k = 0;
+    }
+    Dot (int i, int j, int k){
+        this->i = i;
+        this->j = j;
+        this->k = k;
+    }
+    void Print (){
+        cout << "I:"<< i<< "J:"<< j<< "K:"<< k << endl;
+    }
+};
+int main (){
+    string path = "WTF.txt";
+    Dot dot (10, 20, 50);
+    ofstream fout;
+    fout.open(path, ofstream::app);
+
+        fout.write((char *) &dot, sizeof(Dot));
+    fout.close();
+    return 0;
+}
