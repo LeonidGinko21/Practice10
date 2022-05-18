@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <list>
+using namespace std;
+
+class Loader{
+public:
+    string name;
+    string surname;
+    string place_of_work;
+
+    Loader(string i, string j, string k){
+        name = i;
+        surname = j;
+        place_of_work = k;
+
+    };
+};
+class Logistician: public Loader{
+public:
+    list<Loader*> group;
+    short reprimands;
+    Teacher(string i1, string j1, string k1) : Loader(i1, j1, k1) {
+        name = i1;
+        surname = j1;
+        place_of_work = k1;
+
+    };
+    Logistician& visit_card(){
+        cout << "Surname: " << surname << endl;
+        cout << "Name: " << name << endl;
+        cout << "Place of work: " << place_of_work << endl;
+        cout << "Reprimands: " << reprimands << endl;
+    }
+};
+int main(){
+    Logistician Alexander(  "Alexander", "Dobriy","Bolshaia Pushkarskaia 20");
+    Loader Vadim( "Vadim", "Igolkin", "Prospect stachek 20");
+    Loader Igor( "Igor", "Panin", "Prospect Nepokorenih 8");
+
+    Alexander.group.push_back(&Vadim);
+    Alexander.group.push_back(&Igor);
+    Loader* adress = &Vadim;
+    Loader firt1 = *adress;
+    return 0;
